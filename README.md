@@ -209,9 +209,10 @@ Through this project, I gained hands-on experience in:
 📧 Email: [mdharunmdharun175@gmail.com](mailto:mdharunmdharun175@gmail.com)
 📞 Contact: 9342659272
 
-🔗 LinkedIn: https://linkedin.com/in/your-id
-🐙 GitHub: https://github.com/your-id
-🐦 Twitter: https://twitter.com/your-id
+- GitHub: [@dharun]([https://github.com/mdharunmdharun175-tech])
+- Twitter: [@dharun46](https://x.com/Dharun_046)
+- LinkedIn: [dharun-kumar](www.linkedin.com/in/dharun-kumar-m-691a04351)
+- Portfolio: [dharunkumar.dev](https://yoursite.com)
 
 ---
 
