@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>e.com – Shop Everything</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     LOGIN SCREEN  (shown until logged in)
+════════════════════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-left">
+    <div class="login-brand">
+      <div class="brand-logo">e<span>.</span>com</div>
+      <p class="brand-tag">India's Fastest Growing Store</p>
+    </div>
+    <div class="login-illustration">
+      <div class="shop-icon">🛒</div>
+      <div class="float-box b1">📱 1Cr+ Products</div>
+      <div class="float-box b2">🚚 Free Delivery</div>
+      <div class="float-box b3">🔒 Secure Pay</div>
+      <div class="float-box b4">💰 Best Prices</div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="auth-box">
+      <h2 id="auth-title">Welcome Back</h2>
+      <p id="auth-sub">Login to continue shopping</p>
+      <div class="auth-tabs">
+        <button class="atab active" onclick="authMode('login')">Login</button>
+        <button class="atab" onclick="authMode('register')">Register</button>
+      </div>
+      <div id="auth-form"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     MAIN APP  (hidden until logged in)
+════════════════════════════════════════════════════ -->
+<div id="app" style="display:none">
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <div class="logo" onclick="goHome()">e<span>.</span>com</div>
+      <div class="search-center">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-inp" placeholder="Search products, brands and more…"
+            oninput="liveSearch(this.value)"
+            onkeydown="if(event.key==='Enter')doSearch()"/>
+          <button class="search-btn" onclick="doSearch()">Search</button>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-user" id="nav-user-btn" onclick="toggleUserMenu()">
+          <div class="user-avatar" id="nav-avatar">U</div>
+          <span id="nav-uname">User</span>
+          <span class="caret">▾</span>
+        </div>
+        <div class="user-dropdown" id="user-dropdown">
+          <div class="ud-item" onclick="openProfile()">👤 My Profile</div>
+          <div class="ud-item" onclick="openMyOrders()">📦 My Orders</div>
+          <div class="ud-item" onclick="openWishlist()">❤️ Wishlist</div>
+          <div id="admin-link" class="ud-item" onclick="openAdmin()" style="display:none">⚙️ Admin Panel</div>
+          <div class="ud-divider"></div>
+          <div class="ud-item danger" onclick="doLogout()">🚪 Logout</div>
+        </div>
+        <button class="cart-btn" onclick="openCart()">
+          🛒 <span class="cart-lbl">Cart</span>
+          <span class="cbadge" id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CATEGORY BAR -->
+  <div id="cat-bar">
+    <div class="cat-scroll">
+      <div class="ctab active" data-cat=""         onclick="filterCat('',this)">🏠 Home</div>
+      <div class="ctab" data-cat="mobiles"         onclick="filterCat('mobiles',this)">📱 Mobiles</div>
+      <div class="ctab" data-cat="laptops"         onclick="filterCat('laptops',this)">💻 Laptops</div>
+      <div class="ctab" data-cat="electronics"     onclick="filterCat('electronics',this)">🔌 Electronics</div>
+      <div class="ctab" data-cat="fashion"         onclick="filterCat('fashion',this)">👗 Fashion</div>
+      <div class="ctab" data-cat="shoes"           onclick="filterCat('shoes',this)">👟 Shoes</div>
+      <div class="ctab" data-cat="books"           onclick="filterCat('books',this)">📚 Books</div>
+      <div class="ctab" data-cat="gifts"           onclick="filterCat('gifts',this)">🎁 Gift Cards</div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <main id="main"></main>
+
+  <!-- CART SLIDE PANEL -->
+  <div id="cart-overlay" onclick="closeCart()"></div>
+  <div id="cart-panel">
+    <div class="cp-head">
+      <h3>🛒 My Cart</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div id="cp-items"></div>
+    <div id="cp-foot"></div>
+  </div>
+
+  <!-- GENERIC MODAL -->
+  <div class="overlay" id="overlay" onclick="closeOverlay(event)">
+    <div class="modal-box" id="modal-box"></div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
